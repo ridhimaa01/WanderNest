@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>WanderNest - Wander. Discover. Belong.</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <div style="display: flex; justify-content: space-between; align-items: center; padding: 1rem;">
+      <h1>WanderNest</h1>
+      <section class="travel-quiz" style="margin: 0; padding: 0; background: none; box-shadow: none;">
+        <h3 style="margin-bottom: 0.5rem;">Travel Quiz</h3>
+        <div id="quiz">
+          <select id="vibe">
+            <option value="">Vibe</option>
+            <option value="relax">Relaxing</option>
+            <option value="adventure">Adventure</option>
+            <option value="culture">Culture</option>
+            <option value="modern">Modern</option>
+          </select>
+          <select id="weather">
+            <option value="">Weather</option>
+            <option value="cold">Cold</option>
+            <option value="warm">Warm</option>
+            <option value="moderate">Mild</option>
+          </select>
+          <button onclick="suggestDestination()">Go</button>
+          <div id="result" style="font-size: 0.9rem; margin-top: 0.5rem;"></div>
+        </div>
+      </section>
+    </div>
+  </header>
+
+  <section class="hero">
+    <h1>Wander. Discover. Belong.</h1>
+    <p>Between flights and footsteps, find your favourite version of yourself.</p>
+  </section>
+
+  <section class="destinations">
+    <h2>Top Destinations</h2>
+    <div class="cards">
+      <div class="card">
+        <img src="https://idsb.tmgrup.com.tr/ly/uploads/images/2025/03/12/372657.jpg" alt="Japan">
+        <p>Japan: Where tradition dances with tomorrow's tech.</p>
+      </div>
+      <div class="card">
+        <img src="https://cms.inspirato.com/ImageGen.ashx?image=%2Fmedia%2F5682412%2FLondon_Dest_125855814.jpg&width=1081.5" alt="London">
+        <p>London: Timeless charm in every cobblestone.</p>
+      </div>
+      <div class="card">
+        <img src="https://static.toiimg.com/photo/56759746/.jpg" alt="India">
+        <p>India: A billion colors, one heart.</p>
+      </div>
+      <div class="card">
+        <img src="https://assets.cntraveller.in/photos/63f5b2d472cc3e2749d663f5/1:1/w_4016,h_4016,c_limit/GettyImages-1145042281.jpeg" alt="Bali">
+        <p>Bali: Tranquility wrapped in waves and temples.</p>
+      </div>
+      <div class="card">
+        <img src="https://media-cdn.tripadvisor.com/media/photo-m/1280/17/15/6d/d6/paris.jpg" alt="Paris">
+        <p>Paris: Where every street is a love story.</p>
+      </div>
+      <div class="card">
+        <img src="https://res.cloudinary.com/enchanting/q_70,f_auto,w_6000,h_4004,c_fit/exodus-web/2024/10/Seoul.jpg" alt="South Korea">
+        <p>South Korea: K-culture, bold bites, and vibrant nights.</p>
+      </div>
+      <div class="card">
+        <img src="https://media.istockphoto.com/id/1145450965/photo/santorini-island-greece.jpg?s=612x612&w=0&k=20&c=AY_kxRrkTjbDLhqpotxgW8CZp4ovEIM1tRdTrvXKcAM=" alt="Greece">
+        <p>Greece: White walls, blue seas, endless myths.</p>
+      </div>
+      <div class="card">
+        <img src="https://static.toiimg.com/thumb/msid-102933784,width-748,height-499,resizemode=4,imgsize-149868/.jpg" alt="Turkey">
+        <p>Turkey: Where East kisses West.</p>
+      </div>
+      <div class="card">
+        <img src="https://www.shutterstock.com/image-photo/sydney-harbour-opera-house-cityscape-600nw-2495680553.jpg" alt="Australia">
+        <p>Australia: Sun, surf, and the spirit of the wild.</p>
+      </div>
+      <div class="card">
+        <img src="https://alpexcursion.com/storage/media/Blog/Lauterbrunnen.webp" alt="Switzerland" alt="Switzerland">
+        <p>Switzerland: Serenity wrapped in snow.</p>
+      </div>
+      <div class="card">
+        <img src="https://lp-cms-production.imgix.net/2023-10/iStock-528618186-RFC.jpg" alt="Egypt" />
+        <p>Egypt: Pyramids, pharaohs, and golden desert dreams.</p>
+      </div>
+      <div class="card">
+        <img src="https://assets3.thrillist.com/v1/image/3127246/1200x600/scale;;webp=auto;jpeg_quality=85.jpg" alt="Thailand" />
+        <p>Thailand: Temples, tuk-tuks, and tropical treats.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="newsletter">
+    <h2>Stay Updated</h2>
+    <p>Subscribe to our newsletter for travel tips, hidden gems, and exclusive deals.</p>
+    <form>
+      <input type="email" placeholder="Enter your email" required />
+      <button type="submit">Subscribe</button>
+    </form>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 WanderNest. All rights reserved.</p>
+  </footer>
+
+  <script>
+    function suggestDestination() {
+      const vibe = document.getElementById("vibe").value;
+      const weather = document.getElementById("weather").value;
+      const result = document.getElementById("result");
+
+      if (!vibe || !weather) {
+        result.textContent = "Please select both options!";
+        return;
+      }
+
+      let destination = "";
+
+      if (vibe === "relax" && weather === "warm") destination = "Bali 🌴";
+      else if (vibe === "adventure" && weather === "cold") destination = "Switzerland ⛷️";
+      else if (vibe === "culture" && weather === "moderate") destination = "India 🕌";
+      else if (vibe === "modern" && weather === "cold") destination = "South Korea 🌆";
+      else if (vibe === "culture" && weather === "warm") destination = "Egypt 🏜️";
+      else destination = "Thailand 🏝️";
+
+      result.textContent = `You should travel to... ✈️ ${destination}`;
+    }
+  </script>
+</body>
+</html>
+
